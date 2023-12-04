@@ -4,7 +4,7 @@
     <a href="<?= url_to('dashboard') ?>" class="brand-link">
         <img src="<?= base_url('adminLTE'); ?>/img/AdminLTELogo.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Clothing Store</span>
+        <span class="brand-text font-weight-light">Cafe</span>
     </a>
 
     <!-- Sidebar -->
@@ -27,6 +27,12 @@
                     <a href="<?= url_to('drink') ?>" class="nav-link">
                         <i class="fas fa-home nav-icon"></i>
                         <p> Drink </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= url_to('food') ?>" class="nav-link">
+                        <i class="fas fa-home nav-icon"></i>
+                        <p> Food </p>
                     </a>
                 </li>
             </ul>
