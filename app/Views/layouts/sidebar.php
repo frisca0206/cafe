@@ -20,7 +20,13 @@
                 <li class="nav-item">
                     <a href="<?= url_to('dashboard') ?>" class="nav-link">
                         <i class="fas fa-home nav-icon"></i>
-                        <p> dashboard </p>
+                        <p> Dashboard </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= url_to('drink') ?>" class="nav-link">
+                        <i class="fas fa-home nav-icon"></i>
+                        <p> Drink </p>
                     </a>
                 </li>
             </ul>
