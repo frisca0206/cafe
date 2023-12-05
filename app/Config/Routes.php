@@ -24,3 +24,11 @@ $routes->get('/food/delete/(:num)', 'FoodController::delete/$1',['as' => 'food-d
 $routes->get('/food/create', 'FoodController::create',['as' => 'food-create']);
 $routes->post('/food/store', 'FoodController::store',['as' => 'food-store']);
 $routes->post('/food/update', 'FoodController::update',['as' => 'food-update']);
+
+
+$routes->get('/order', 'OrderController::index',['as' => 'order']);
+$routes->get('/order/edit/(:num)', 'OrderController::edit/$1',['as' => 'order-edit']);
+$routes->get('/order/delete/(:num)', 'OrderController::delete/$1',['as' => 'order-delete']);
+$routes->get('/order/create', 'OrderController::create',['as' => 'order-create']);
+$routes->post('/order/store', 'OrderController::store',['as' => 'order-store']);
+$routes->post('/order/update', 'OrderController::update',['as' => 'order-update']);

@@ -35,6 +35,12 @@
                         <p> Food </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?= url_to('order') ?>" class="nav-link">
+                        <i class="fas fa-home nav-icon"></i>
+                        <p> Order </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!--/.sidebar-menu-->
