@@ -25,19 +25,19 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_to('drink') ?>" class="nav-link">
-                        <i class="fas fa-home nav-icon"></i>
+                        <i class="fas fa-wine-glass nav-icon"></i>
                         <p> Drink </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_to('food') ?>" class="nav-link">
-                        <i class="fas fa-home nav-icon"></i>
+                        <i class="fas fa-utensils nav-icon"></i>
                         <p> Food </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="<?= url_to('order') ?>" class="nav-link">
-                        <i class="fas fa-home nav-icon"></i>
+                        <i class="fas fa-cash-register nav-icon"></i>
                         <p> Order </p>
                     </a>
                 </li>
