@@ -5,7 +5,12 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+$routes->get('/', function() {
+    return view('landing-page');
+});
+
+$routes->get('/home', 'HomeController::index',['as' => 'home']);
+$routes->get('/login', 'LoginController::index',['as' => 'login']);
 
 // => default controller
 $routes->get('dashboard', 'DashboardController::index',['as' => 'dashboard']);

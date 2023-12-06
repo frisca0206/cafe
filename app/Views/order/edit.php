@@ -34,6 +34,7 @@
                                                 <option value=""></option>
                                                 <?php foreach ($drinks as $key => $drink) : ?>
                                                 <option value="<?= $drink['id']; ?>"
+                                                    data-drink-price="<?= $drink['price'];?>"
                                                     <?php if($order['drink_name_id'] == $drink['id']) echo "selected"; ?>>
                                                     <?= $drink['drink_name']; ?></option>
                                                 <?php endforeach ?>
@@ -45,6 +46,7 @@
                                                 <option value=""></option>
                                                 <?php foreach ($foods as $key => $food) : ?>
                                                 <option value="<?= $food['id']; ?>"
+                                                    data-food-price="<?= $food['price'];?>"
                                                     <?php if($order['food_name_id'] == $food['id']) echo "selected"; ?>>
                                                     <?= $food['food_name']; ?></option>
                                                 <?php endforeach ?>
@@ -63,7 +65,7 @@
                                         <div class="form-group">
                                             <label for="total_price"> Total Price </label>
                                             <input type="number" class="form-control" id="total_price"
-                                                name="total_price" value="<?= $order['total_price'] ?>" required>
+                                                name="total_price" value="<?= $order['total_price'] ?>" required readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="total_paid"> Total Paid</label>
@@ -73,7 +75,7 @@
                                         <div class="form-group">
                                             <label for="total_return"> Total Return </label>
                                             <input type="number" class="form-control" id="total_return"
-                                                name="total_return" value="<?= $order['total_return'] ?>" required>
+                                                name="total_return" value="<?= $order['total_return'] ?>" required readonly>
                                         </div>
                                     </div>
                                 </div>

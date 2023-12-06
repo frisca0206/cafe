@@ -23,7 +23,7 @@ class OrderController extends BaseController
         $orders = $this->OrderModel->select('order.*,drink.drink_name,food.food_name')
         ->join('drink', 'drink.id = order.drink_name_id')
         ->join('food', 'food.id = order.food_name_id')->findAll();
-        
+
         $data = [
             'title' => 'Order Management',
             'page_title' => 'Order List',

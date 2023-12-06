@@ -32,7 +32,8 @@
                                             <select id="drink_name" name="drink_name" class="form-control">
                                                 <option value=""></option>
                                                 <?php foreach ($drinks as $key => $drink) : ?>
-                                                <option value="<?php echo $drink['id']; ?>">
+                                                <option value="<?php echo $drink['id']; ?>"
+                                                    data-drink-price="<?= $drink['price'];?>">
                                                     <?php echo $drink['drink_name']; ?>
                                                 </option>
                                                 <?php endforeach ?>
@@ -43,7 +44,8 @@
                                             <select id="food_name" name="food_name" class="form-control">
                                                 <option value=""></option>
                                                 <?php foreach ($foods as $key => $food) : ?>
-                                                <option value="<?php echo $food['id']; ?>">
+                                                <option value="<?php echo $food['id']; ?>"
+                                                    data-food_price="<?= $food['price'];?>">
                                                     <?php echo $food['food_name']; ?>
                                                 </option>
                                                 <?php endforeach ?>
@@ -60,7 +62,7 @@
                                         <div class="form-group">
                                             <label for="total_price">Total Price</label>
                                             <input type="number" class="form-control" id="total_price"
-                                                name="total_price" required>
+                                                name="total_price" required readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="total_paid">Total Paid </label>
@@ -70,7 +72,7 @@
                                         <div class="form-group">
                                             <label for="total_return">Total Return </label>
                                             <input type="number" class="form-control" id="total_return"
-                                                name="total_return" required>
+                                                name="total_return" required readonly>
                                         </div>
                                     </div>
                                 </div>
