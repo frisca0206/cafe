@@ -24,6 +24,13 @@ class OrderController extends BaseController
         ->join('drink', 'drink.id = order.drink_name_id')
         ->join('food', 'food.id = order.food_name_id')->findAll();
 
+        foreach ($orders as $key => $order)
+        {
+            $orders[$key]['total_price'] = $this->rupiah($order['total_price']);
+            $orders[$key]['total_paid'] = $this->rupiah($order['total_paid']);
+            $orders[$key]['total_return'] = $this->rupiah($order['total_return']);
+        }
+
         $data = [
             'title' => 'Order Management',
             'page_title' => 'Order List',
@@ -50,7 +57,6 @@ class OrderController extends BaseController
         $drink_name = $this->request->getPost('drink_name');
         $food_name = $this->request->getPost('food_name');
         $date = $this->request->getPost('date');
-        $items = $this->request->getPost('items');
         $total_price = $this->request->getPost('total_price');
         $total_paid = $this->request->getPost('total_paid');
         $total_return = $this->request->getPost('total_return');
@@ -59,7 +65,7 @@ class OrderController extends BaseController
             'drink_name_id' => $drink_name,
             'food_name_id' => $food_name,
             'date' => $date,
-            'items' => $items,
+            'items' => 1,
             'total_price' => $total_price,
             'total_paid' => $total_paid,
             'total_return' => $total_return,
@@ -87,7 +93,6 @@ class OrderController extends BaseController
         $drink_name = $this->request->getPost('drink_name');
         $food_name = $this->request->getPost('food_name');
         $date = $this->request->getPost('date');
-        $items = $this->request->getPost('items');
         $total_price = $this->request->getPost('total_price');
         $total_paid = $this->request->getPost('total_paid');
         $total_return = $this->request->getPost('total_return');
@@ -96,7 +101,6 @@ class OrderController extends BaseController
             'drink_name_id' => $drink_name,
             'food_name_id' =>$food_name,
             'date' => $date,
-            'items' => $items,
             'total_price' => $total_price,
             'total_paid' => $total_paid,
             'total_return' => $total_return,
@@ -110,5 +114,11 @@ class OrderController extends BaseController
     {
         $this->OrderModel->delete($order_id);
         return redirect()->to('order');
+    }
+
+    public function rupiah($angka)
+    {
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
     }
 }

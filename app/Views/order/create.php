@@ -45,7 +45,7 @@
                                                 <option value=""></option>
                                                 <?php foreach ($foods as $key => $food) : ?>
                                                 <option value="<?php echo $food['id']; ?>"
-                                                    data-food_price="<?= $food['price'];?>">
+                                                    data-food-price="<?= $food['price'];?>">
                                                     <?php echo $food['food_name']; ?>
                                                 </option>
                                                 <?php endforeach ?>
@@ -54,10 +54,6 @@
                                         <div class="form-group">
                                             <label for="date">Date</label>
                                             <input type="date" class="form-control" id="date" name="date" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="items">Item</label>
-                                            <input type="number" class="form-control" id="items" name="items" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="total_price">Total Price</label>
@@ -100,3 +96,29 @@
 
 
 <?= $this->endSection('content'); ?>
+
+<?= $this->Section('page_script'); ?>
+
+<script type="text/javascript">
+let total_price = 0;
+
+$('#drink_name, #food_name').on('change', function(){
+    let drink_price = $('#drink_name option:selected').attr('data-drink-price');
+    let food_price = $('#food_name option:selected').attr('data-food-price');
+
+    drink_price = drink_price ? drink_price : 0;
+    food_price = food_price ? food_price : 0;
+
+    total_price = parseInt(drink_price) + parseInt(food_price);
+    $('#total_price').val(total_price);
+    $('#total_paid').trigger('change');
+})
+$('#total_paid').on('change', function() {
+    let total_paid = this.value;
+    total_return = total_paid - total_price;
+    $('#total_return').val(total_return);
+});
+
+</script>
+
+<?= $this->endSection('page_script'); ?>

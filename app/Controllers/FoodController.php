@@ -17,10 +17,17 @@ class FoodController extends BaseController
 
     public function index()
     {
+        $foods = $this->FoodModel->select('*')->findAll();
+
+        foreach ($foods as $key => $food) 
+        {
+            $foods[$key]['price'] = $this->rupiah($food['price']);
+        }
+
         $data = [
             'title' => 'Food Management',
             'page_title' => 'Food List',
-            'foods' => $this->FoodModel->findAll()
+            'foods' => $foods
         ];
         return view('food/index', $data);
     }
@@ -82,5 +89,10 @@ class FoodController extends BaseController
     {
         $this->FoodModel->delete($food_id);
         return redirect()->to('food');
+    }
+
+    public function rupiah($angka){
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
     }
 }

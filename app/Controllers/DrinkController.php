@@ -17,10 +17,17 @@ class DrinkController extends BaseController
 
     public function index()
     {
+        $drinks = $this->DrinkModel->select('*')->findAll();
+
+        foreach ($drinks as $key => $drink)
+        {
+            $drinks[$key]['price'] = $this->rupiah($drink['price']);
+        }
+
         $data = [
             'title' => 'Drink Management',
             'page_title' => 'Drink List',
-            'drinks' => $this->DrinkModel->findAll()
+            'drinks' => $drinks
         ];
         return view('drink/index', $data);
     }
@@ -78,5 +85,11 @@ class DrinkController extends BaseController
     {
         $this->DrinkModel->delete($drink_id);
         return redirect()->to('drink');
+    }
+
+    public function rupiah($angka)
+    {
+        $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+        return $hasil_rupiah;
     }
 }
