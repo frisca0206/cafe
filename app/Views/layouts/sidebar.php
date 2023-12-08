@@ -30,6 +30,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= url_to('category') ?>" class="nav-link">
+                        <i class="fas fa-home nav-icon"></i>
+                        <p> Category </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= url_to('food') ?>" class="nav-link">
                         <i class="fas fa-utensils nav-icon"></i>
                         <p> Food </p>

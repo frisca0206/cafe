@@ -37,3 +37,11 @@ $routes->get('/order/delete/(:num)', 'OrderController::delete/$1',['as' => 'orde
 $routes->get('/order/create', 'OrderController::create',['as' => 'order-create']);
 $routes->post('/order/store', 'OrderController::store',['as' => 'order-store']);
 $routes->post('/order/update', 'OrderController::update',['as' => 'order-update']);
+
+
+$routes->get('/category', 'CategoryController::index',['as' => 'category']);
+$routes->get('/category/edit/(:num)', 'CategoryController::edit/$1',['as' => 'category-edit']);
+$routes->get('/category/delete/(:num)', 'CategoryController::delete/$1',['as' => 'category-delete']);
+$routes->get('/category/create', 'CategoryController::create',['as' => 'category-create']);
+$routes->post('/category/store', 'CategoryController::store',['as' => 'category-store']);
+$routes->post('/category/update', 'CategoryController::update',['as' => 'category-update']);
